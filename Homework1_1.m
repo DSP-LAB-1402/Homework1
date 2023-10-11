@@ -7,12 +7,18 @@ clc;
 
 %% Homework 1_1
 
+% This cell is about, plotting Sine wave with "plot function" and "stem function"
+% Now we declare variables first
+
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
 f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
+
+% Now we plot signla with two functions "plot and stem"
+
 figure('Name', 'Sine Plot');
 plot(t, signal, 'LineWidth', 0.5);
 xlabel('Time (s)');
@@ -27,6 +33,8 @@ title('Sine Function');
 grid on;
 
 %% Homework1_2
+
+
 
 Ts = 0.01;
 amp = 2;
@@ -150,3 +158,4 @@ grid on;
 hold on
 plot(t, filtered_signal);
 legend("Convolved Signal", "filtered Signal");
+%% Homework1_5
