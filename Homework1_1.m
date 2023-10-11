@@ -45,6 +45,9 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 size_t = size(t);
+%
+% Here we declare the signals we want to plot
+%
 stochastic_signal = rand(1, size_t(2)) - 0.5;
 noisy_signal = signal + stochastic_signal;
 %
@@ -75,7 +78,12 @@ ylabel('Amplitude');
 grid on;
 %
 %% Homework1_3
-
+%
+% In this task we use "conv" function to convolve sinusoidal wave with "Moving average"
+% This task splits in two parts:
+% Firstly, we have M1=0,M2=20 so we should designate variables in order to meet the needs
+%
+% Now we declare variables
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
@@ -83,16 +91,19 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 size_t = size(t);
-stochastic_signal = rand(1, size_t(2)) - 0.5;
-noisy_signal = signal + stochastic_signal;
-
 M1 = 0;
 M2 = 20;
 amp_mov = 1 / (M1 + M2 + 1);
-n = -M1:M2;
-N = size_t(2);
 uni = ones(1, M1 + M2 + 1);
+%
+% Here we declare the signals needed to plot
+%
+stochastic_signal = rand(1, size_t(2)) - 0.5;
+noisy_signal = signal + stochastic_signal;
 smoothed_sine = amp_mov * conv(noisy_signal, uni, 'same');
+%
+% Here we plot the Signal after convolution and before convolution
+%
 figure('Name', 'Moving Averaged Sine');
 plot(t, smoothed_sine);
 title('Moving Averaged Sine');
@@ -102,8 +113,9 @@ grid on;
 hold on
 plot(t, signal);
 legend("Convolved Signal", "Original Signal");
-
+%
 %% homework1_3_2
+%
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
