@@ -6,19 +6,20 @@ clear;
 clc;
 
 %% Homework 1_1
-
+%
 % This cell is about, plotting Sine wave with "plot function" and "stem function"
+%
 % Now we declare variables first
-
+%
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
 f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
-
+%
 % Now we plot signla with two functions "plot and stem"
-
+%
 figure('Name', 'Sine Plot');
 plot(t, signal, 'LineWidth', 0.5);
 xlabel('Time (s)');
@@ -31,12 +32,12 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 title('Sine Function');
 grid on;
-
+%
 %% Homework1_2
-
+%
 % This cell is about showing uniform random noise and adding it with sinusoidal wave
 % Now first declare variables that we need for this task
-
+%
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
@@ -46,18 +47,18 @@ signal = amp * sin(w * t);
 size_t = size(t);
 stochastic_signal = rand(1, size_t(2)) - 0.5;
 noisy_signal = signal + stochastic_signal;
-
+%
 % Plotting the Uniform Noise Signal
-
+%
 figure('Name', 'Uniform Noise Signal');
 plot(t, stochastic_signal);
 title('Uniform Noise Signal');
 xlabel('Sample');
 ylabel('Amplitude');
 grid on;
-
+%
 % Plotting sine wave with and without noise
-
+%
 figure('Name', 'Sine Waves');
 subplot(2, 1, 1)
 plot(t, signal);
@@ -65,14 +66,14 @@ title('Sine Function');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
-
+%
 subplot(2, 1, 2)
 plot(t, noisy_signal);
 title('Noisy sine');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
-
+%
 %% Homework1_3
 
 Ts = 0.01;
