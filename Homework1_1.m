@@ -17,7 +17,7 @@ t = 0:Ts:2;
 f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
-%
+%%%
 % Now we plot signla with two functions "plot and stem"
 %
 figure('Name', 'Sine Plot');
@@ -26,13 +26,13 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 title('Sine Function');
 grid on;
+
 figure('Name', 'Sine Stem');
 stem(t, signal, 'LineWidth', 0.5);
 xlabel('Time (s)');
 ylabel('Amplitude');
 title('Sine Function');
 grid on;
-%
 %% Homework1_2
 %
 % This cell is about showing uniform random noise and adding it with sinusoidal wave
@@ -45,12 +45,12 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 size_t = size(t);
-%
+%%%
 % Here we declare the signals we want to plot
 %
 stochastic_signal = rand(1, size_t(2)) - 0.5;
 noisy_signal = signal + stochastic_signal;
-%
+%%%
 % Plotting the Uniform Noise Signal
 %
 figure('Name', 'Uniform Noise Signal');
@@ -59,7 +59,7 @@ title('Uniform Noise Signal');
 xlabel('Sample');
 ylabel('Amplitude');
 grid on;
-%
+%%%
 % Plotting sine wave with and without noise
 %
 figure('Name', 'Sine Waves');
@@ -69,14 +69,14 @@ title('Sine Function');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
-%
+
 subplot(2, 1, 2)
 plot(t, noisy_signal);
 title('Noisy sine');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
-%
+
 %% Homework1_3
 %
 % In this task we use "conv" function to convolve sinusoidal wave with "Moving average"
@@ -95,13 +95,13 @@ M1 = 0;
 M2 = 20;
 amp_mov = 1 / (M1 + M2 + 1);
 uni = ones(1, M1 + M2 + 1);
-%
+%%%
 % Here we declare the signals needed to plot
 %
 stochastic_signal = rand(1, size_t(2)) - 0.5;
 noisy_signal = signal + stochastic_signal;
 smoothed_sine = amp_mov * conv(noisy_signal, uni, 'same');
-%
+%%%
 % Here we plot the Signal after convolution and before convolution
 %
 figure('Name', 'Moving Averaged Sine');
