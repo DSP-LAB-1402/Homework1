@@ -18,11 +18,13 @@ plot(t, signal, 'LineWidth', 0.5);
 xlabel('Time (s)');
 ylabel('Amplitude');
 title('Sine Function');
-figure('Name', 'Sine Plot');
+grid on;
+figure('Name', 'Sine Stem');
 stem(t, signal, 'LineWidth', 0.5);
 xlabel('Time (s)');
 ylabel('Amplitude');
 title('Sine Function');
+grid on;
 
 %% Homework1_2
 
@@ -74,13 +76,42 @@ M2 = 20;
 amp_mov = 1 / (M1 + M2 + 1);
 n = -M1:M2;
 N = size_t(2);
-%t1 = 0:2 / (M2 - M1 + size_t(2)):2 - 2 / (M2 - M1 + size_t(2));
 uni = ones(-M1 + 1, M2 + 1);
 smoothed_sine = amp_mov * conv(noisy_signal, uni, 'same');
 figure('Name', 'Moving Averaged Sine');
-subplot(2, 1, 1)
 plot(t, smoothed_sine);
 title('Moving Averaged Sine');
+xlabel('Time (s)');
+ylabel('Amplitude');
+grid on;
+hold on
+plot(t, signal);
+legend("Convolved Signal", "Original Signal");
+
+%% homework1_3_2
+Ts = 0.01;
+amp = 2;
+t = 0:Ts:2;
+f0 = 1;
+w = 2 * pi * f0;
+signal = amp * sin(w * t);
+size_t = size(t);
+stochastic_signal = rand(1, size_t(2)) - 0.5;
+noisy_signal = signal + stochastic_signal;
+
+M1 = 10;
+M2 = 10;
+amp_mov = 1 / (M1 + M2 + 1);
+n = -M1:M2;
+N = size_t(2);
+
+uni = ones(1, 21);
+smoothed_sine = amp_mov * conv(uni, noisy_signal);
+shifted_sine = smoothed_sine(M1 + M2 + 1:end);
+figure('Name', 'Moving Averaged Sine');
+subplot(2, 1, 1)
+plot(t, shifted_sine);
+title('shifted Sine');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
