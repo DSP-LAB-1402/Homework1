@@ -18,7 +18,7 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 %%%
-% Now we plot signla with two functions "plot and stem"
+% Now we plot signal with two functions "plot and stem"
 %
 figure('Name', 'Sine Plot');
 plot(t, signal, 'LineWidth', 0.5);
@@ -77,11 +77,11 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
 
-%% Homework1_3
+%% Homework1_3_1
 %
 % In this task we use "conv" function to convolve sinusoidal wave with "Moving average"
 % This task splits in two parts:
-% Firstly, we have M1=0,M2=20 so we should designate variables in order to meet the needs
+% we have M1=0,M2=20 so we should designate variables in order to meet the needs
 %
 % Now we declare variables
 Ts = 0.01;
@@ -115,7 +115,7 @@ plot(t, signal);
 legend("Convolved Signal", "Original Signal");
 %
 %% homework1_3_2
-% In this part we want to do the same as latest task but with different M1 and M2
+% In this part we want to do the same as the latest task but with different M1 and M2
 % We set M1=M2=10 and try to plot the wave and see how much difference it shows
 %
 % Now we declare variables needed to complete the task
@@ -153,13 +153,13 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
 %%%
-% After plotting we see that we have delays when we are using conv function
+% After plotting we see that we have delays when we are using "conv" function
 % Also we see that if we use M1=M2=10 compare to M1=0, M2=20, we have more delays
 
 %% Homework1_4
-% The purpose of this task is using filter function and compare it with conv function
+% The purpose of this task is using "filter" function and compare it with "conv" function
 %
-% Here first we declare needed variables
+% Here firstly we declare needed variables
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
