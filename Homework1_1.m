@@ -193,3 +193,18 @@ hold on
 plot(t, filtered_signal);
 legend("Convolved Signal", "filtered Signal");
 %% Homework1_5
+% Here we want to make a function and use it
+% Here we declare variables to use as function's argument
+n = 20;
+w0 = pi / 2;
+y = singen(n, w0);
+%%%
+% Here we plot singen function
+figure('Name', 'Discrete sine');
+stem(1:n, y);
+title('Discrete Sine');
+xlabel('Samples');
+ylabel('Amplitude');
+grid on;
+%%%
+% Thanks for attention
