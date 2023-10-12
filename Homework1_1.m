@@ -115,7 +115,10 @@ plot(t, signal);
 legend("Convolved Signal", "Original Signal");
 %
 %% homework1_3_2
+% In this part we want to do the same as latest task but with different M1 and M2
+% We set M1=M2=10 and try to plot the wave and see how much difference it shows
 %
+% Now we declare variables needed to complete the task
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
@@ -123,18 +126,18 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 size_t = size(t);
-stochastic_signal = rand(1, size_t(2)) - 0.5;
-noisy_signal = signal + stochastic_signal;
-
 M1 = 10;
 M2 = 10;
 amp_mov = 1 / (M1 + M2 + 1);
-n = -M1:M2;
-N = size_t(2);
-
+%%%
+% Here we declare signals needed to plot
+stochastic_signal = rand(1, size_t(2)) - 0.5;
+noisy_signal = signal + stochastic_signal;
 uni = ones(1, 21);
 smoothed_sine = amp_mov * conv(uni, noisy_signal);
 shifted_sine = smoothed_sine(M1 + M2 + 1:end);
+%%%
+% We plot convolved signal and sine signal
 figure('Name', 'Moving Averaged Sine');
 subplot(2, 1, 1)
 plot(t, shifted_sine);
@@ -142,12 +145,17 @@ title('shifted Sine');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
+
 subplot(2, 1, 2)
 plot(t, signal);
 title('sine');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
+%%%
+% After plotting we see that we have delays when we are using conv function
+% Also we see that if we use M1=M2=10 compare to M1=0, M2=20, we have more delays
+
 %% Homework1_4
 
 Ts = 0.01;
