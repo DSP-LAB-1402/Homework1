@@ -198,8 +198,8 @@ legend("Convolved Signal", "filtered Signal");
 %% Homework1_5
 % Here we want to make a function and use it
 % Here we declare variables to use as function's argument
-n = 20;
-w0 = pi / 2;
+n = 40;
+w0 = pi / 4;
 y = singen(n, w0);
 %%%
 % Here we plot singen function
