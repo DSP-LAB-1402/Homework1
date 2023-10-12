@@ -1,4 +1,7 @@
 %% *Homework 1*
+%% Programmers
+% Mohammad MAhdi Elyasi - 9823007
+% Moein Nasiri - 9823093
 
 %% Clear the workspace
 close all;
