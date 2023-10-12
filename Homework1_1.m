@@ -157,7 +157,9 @@ grid on;
 % Also we see that if we use M1=M2=10 compare to M1=0, M2=20, we have more delays
 
 %% Homework1_4
-
+% The purpose of this task is using filter function and compare it with conv function
+%
+% Here first we declare needed variables
 Ts = 0.01;
 amp = 2;
 t = 0:Ts:2;
@@ -165,17 +167,22 @@ f0 = 1;
 w = 2 * pi * f0;
 signal = amp * sin(w * t);
 size_t = size(t);
-stochastic_signal = rand(1, size_t(2)) - 0.5;
-noisy_signal = signal + stochastic_signal;
 M1 = 0;
 M2 = 20;
 amp_mov = 1 / (M1 + M2 + 1);
 n = -M1:M2;
 N = size_t(2);
+%%%
+% Here we declare Signals needed to plot
+stochastic_signal = rand(1, size_t(2)) - 0.5;
+noisy_signal = signal + stochastic_signal;
 uni = ones(1, M1 + M2 + 1);
 transfer_function = amp_mov * uni;
 filtered_signal = filter(transfer_function, 1, noisy_signal);
 smoothed_sine = amp_mov * conv(noisy_signal, uni, 'same');
+%%%
+% Now we plot signals with "conv" and "filter"
+% We demonstrate the shifts and differences of signals with one another
 figure('Name', 'Moving Averaged Sine');
 plot(t, smoothed_sine);
 title('Moving Averaged Sine');
